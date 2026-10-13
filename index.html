@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="WeeMadeMusic: WeeProduce müzik prodüksiyon uygulaması yakında.">
+<title>WeeMadeMusic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: tek sütun, ortada okunur blok; üstte marka çubuğu, altta iletişim. Dekor: 16 adımlı dizici şeridi. */
+:root {
+  --bg: #08080b;
+  --fg: #f1f3f7;
+  --muted: #a4a7b3;
+  --line: #22232b;
+  --accent: #ff5a14;
+  --glow: rgba(255, 90, 20, .14);
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --sans: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(120% 55% at 50% -12%, var(--glow), transparent 62%), var(--bg);
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-inline: 20px;
+  padding-block: 0;
+}
+.wrap { max-width: 880px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+.mono { font-family: var(--mono); }
+header { display: flex; align-items: center; gap: 10px; padding-block: 22px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .24em; color: var(--muted); text-transform: uppercase; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 1.6s ease-in-out infinite; flex: none; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; padding-block: 48px; }
+.eyebrow { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .24em; color: var(--accent); text-transform: uppercase; margin: 0 0 14px; }
+h1 { margin: 0; font-family: var(--mono); font-weight: 700; font-size: clamp(34px, 9vw, 72px); line-height: 1.05; letter-spacing: .06em; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
+h1 span { color: var(--accent); }
+.lead { margin: 0; max-width: 34em; font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); text-wrap: pretty; }
+.lead strong { color: var(--fg); font-weight: 600; }
+.seq { display: grid; grid-template-columns: repeat(16, 1fr); gap: 6px; max-width: 520px; }
+.seq i { position: relative; aspect-ratio: 1; border-radius: 4px; background: var(--line); display: block; }
+.seq i:nth-child(4n+1) { background: #2b2c36; }
+.seq i::after { content: ''; position: absolute; inset: 0; border-radius: 4px; background: var(--accent); box-shadow: 0 0 10px var(--accent); opacity: 0; animation: step 3.2s steps(1, end) infinite; animation-delay: calc(var(--n) * .2s - 3.2s); }
+@keyframes step { 0% { opacity: 1; } 6.25% { opacity: 0; } 100% { opacity: 0; } }
+.status { display: inline-flex; align-items: center; gap: 10px; width: fit-content; max-width: 100%; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding-block: 24px 28px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-width: 0; }
+.mail a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--accent); overflow-wrap: anywhere; user-select: all; }
+.mail a:hover { color: var(--accent); }
+button.copy { font: inherit; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; min-height: 36px; cursor: pointer; }
+button.copy:hover { color: var(--fg); border-color: var(--muted); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .dot, .seq i::after { animation: none; } .seq i:nth-child(1)::after { opacity: 1; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <main>
+    <div>
+      <h1 lang="en">Wee<span>Made</span>Music</h1>
+    </div>
+    <div class="seq" aria-hidden="true">
+      <i style="--n:0"></i><i style="--n:1"></i><i style="--n:2"></i><i style="--n:3"></i>
+      <i style="--n:4"></i><i style="--n:5"></i><i style="--n:6"></i><i style="--n:7"></i>
+      <i style="--n:8"></i><i style="--n:9"></i><i style="--n:10"></i><i style="--n:11"></i>
+      <i style="--n:12"></i><i style="--n:13"></i><i style="--n:14"></i><i style="--n:15"></i>
+    </div>
+    <span class="status"><span class="dot" aria-hidden="true"></span>WeeProduce · yakında</span>
+  </main>
+
+  <footer>
+    <div class="mail">
+      <span>İletişim</span>
+      <a id="mailLink" href="mailto:info@weemademusic.com">info@weemademusic.com</a>
+      <button class="copy" id="copyBtn" type="button">Kopyala</button>
+    </div>
+    <span>© WeeMadeMusic</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copyBtn');
+  var link = document.getElementById('mailLink');
+  btn.addEventListener('click', function () {
+    var text = 'info@weemademusic.com';
+    function done() { btn.textContent = 'Kopyalandı'; setTimeout(function () { btn.textContent = 'Kopyala'; }, 1600); }
+    function fallback() {
+      try { var r = document.createRange(); r.selectNodeContents(link); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
