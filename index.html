@@ -58,6 +58,9 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
 .mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-width: 0; }
 .mail a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--accent); overflow-wrap: anywhere; user-select: all; }
 .mail a:hover { color: var(--accent); }
+.side { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; min-width: 0; }
+.ig { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; color: var(--muted); border: 1px solid var(--line); border-radius: 8px; text-decoration: none; }
+.ig:hover { color: var(--accent); border-color: var(--accent); }
 button.copy { font: inherit; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; min-height: 36px; cursor: pointer; }
 button.copy:hover { color: var(--fg); border-color: var(--muted); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -102,7 +105,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
       <a id="mailLink" href="mailto:info@weemademusic.com">info@weemademusic.com</a>
       <button class="copy" id="copyBtn" type="button" data-i18n="copy">Kopyala</button>
     </div>
-    <span>© WeeMadeMusic</span>
+    <div class="side">
+      <a class="ig" href="https://instagram.com/weemademusic" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @weemademusic" title="instagram.com/weemademusic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
+      <span>© WeeMadeMusic</span>
+    </div>
   </footer>
 </div>
 
